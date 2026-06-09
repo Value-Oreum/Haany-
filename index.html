@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>THE SPHERE OF K-MEDI · 대구한의대학교</title>
+<meta name="description" content="대한민국 한의학을 세계와 연결하는 글로벌 랜드마크 — THE SPHERE OF K-MEDI Project, powered by DHU">
+<meta property="og:title" content="THE SPHERE OF K-MEDI 프로젝트">
+<meta property="og:description" content="대한민국 한의학을 세계와 연결하는 글로벌 랜드마크 — powered by DHU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1a3c;
+  --navy-2:#0e2350;
+  --deep:#050d22;
+  --blue:#2f6bff;
+  --blue-2:#4d8bff;
+  --cyan:#5fd0ff;
+  --ink:#0b1426;
+  --gray:#5a6478;
+  --line:#e3e8f2;
+  --paper:#f4f6fb;
+  --white:#ffffff;
+  --gold:#e8b765;
+  --font:"Noto Sans KR","Manrope",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font);
+  background:var(--deep);
+  color:var(--ink);
+  overflow-x:hidden;
+  letter-spacing:-0.01em;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- DECK STRUCTURE ---------- */
+.deck{width:100%;}
+.slide{
+  position:relative;
+  min-height:100svh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(28px,5vw,80px);
+  overflow:hidden;
+  scroll-snap-align:start;
+}
+.slide-inner{
+  width:100%;
+  max-width:1180px;
+  position:relative;
+  z-index:3;
+}
+
+/* scroll snap on desktop */
+@media (min-width:860px){
+  .deck{height:100svh;overflow-y:scroll;scroll-snap-type:y mandatory;}
+  .deck::-webkit-scrollbar{width:0;}
+}
+
+/* ---------- BACKGROUNDS ---------- */
+.bg-dark{background:radial-gradient(120% 90% at 70% 10%,#15306a 0%,var(--navy) 38%,var(--deep) 100%);color:#fff;}
+.bg-paper{background:var(--paper);color:var(--ink);}
+.bg-deep{background:linear-gradient(160deg,#040a1c 0%,#0a1838 100%);color:#fff;}
+
+.grain::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0;pointer-events:none;}
+.orb.a{width:480px;height:480px;background:radial-gradient(circle,#2f6bff,transparent 70%);top:-120px;right:-100px;}
+.orb.b{width:420px;height:420px;background:radial-gradient(circle,#5fd0ff,transparent 70%);bottom:-140px;left:-120px;opacity:.35;}
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.16,.84,.44,1),transform .9s cubic-bezier(.16,.84,.44,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.05s}.d2{transition-delay:.18s}.d3{transition-delay:.31s}
+.d4{transition-delay:.44s}.d5{transition-delay:.57s}.d6{transition-delay:.7s}
+
+/* ---------- TYPOGRAPHY HELPERS ---------- */
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:clamp(11px,1.4vw,13px);font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--blue-2);margin-bottom:22px;
+}
+.kicker::before{content:"";width:30px;height:2px;background:var(--blue);display:inline-block;}
+.bg-paper .kicker{color:var(--blue);}
+h1,h2,h3{font-weight:900;line-height:1.12;letter-spacing:-0.03em;}
+p{line-height:1.75;}
+
+/* ============ COVER (SLIDE 1) ============ */
+#cover{text-align:center;}
+.cover-mark{
+  font-size:clamp(13px,1.6vw,15px);font-weight:700;letter-spacing:.32em;
+  color:var(--cyan);margin-bottom:26px;text-transform:uppercase;
+}
+.cover-title{
+  font-size:clamp(38px,8vw,108px);line-height:.98;font-weight:900;
+  letter-spacing:-0.035em;color:#fff;
+}
+.cover-title .em{
+  display:block;
+  background:linear-gradient(100deg,#7fb6ff 0%,#5fd0ff 50%,#bfe6ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cover-sub{
+  margin-top:30px;font-size:clamp(15px,2.4vw,23px);font-weight:400;
+  color:#c8d6f5;line-height:1.6;letter-spacing:.01em;
+}
+.cover-sub b{font-weight:700;color:#fff;}
+.cover-badge{
+  margin-top:40px;display:inline-flex;align-items:center;gap:12px;
+  padding:13px 26px;border:1px solid rgba(120,170,255,.4);border-radius:100px;
+  font-size:clamp(13px,1.7vw,16px);font-weight:700;color:#fff;
+  background:rgba(47,107,255,.12);backdrop-filter:blur(6px);
+}
+.cover-badge .dhu{font-weight:900;letter-spacing:.05em;color:var(--cyan);}
+.scroll-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:11px;letter-spacing:.25em;color:#7fa0d8;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:5;
+}
+.scroll-hint .mouse{width:22px;height:34px;border:2px solid #7fa0d8;border-radius:12px;position:relative;}
+.scroll-hint .mouse::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:#7fa0d8;animation:sd 1.6s infinite;}
+@keyframes sd{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,11px)}}
+
+/* rotating sphere wire on cover */
+.cover-sphere{
+  position:absolute;z-index:0;width:min(72vmin,640px);height:min(72vmin,640px);
+  left:50%;top:50%;transform:translate(-50%,-50%);opacity:.5;
+}
+.cover-sphere svg{width:100%;height:100%;animation:spin 60s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ============ QUOTE SLIDE ============ */
+.quote-wrap{max-width:880px;margin:0 auto;text-align:center;}
+.quote-mark{font-family:Georgia,serif;font-size:clamp(80px,14vw,170px);line-height:.6;color:var(--blue);opacity:.4;height:.4em;}
+.quote-text{font-size:clamp(22px,3.6vw,42px);font-weight:700;line-height:1.4;color:#fff;letter-spacing:-0.02em;}
+.quote-text .hl{color:var(--cyan);}
+.quote-source{
+  display:inline-block;margin-top:36px;padding:13px 30px;border-radius:8px;
+  background:linear-gradient(90deg,var(--navy),#16357a);
+  font-size:clamp(14px,2vw,19px);font-weight:700;color:#fff;letter-spacing:.02em;
+}
+
+/* ============ SECTION DIVIDER ============ */
+.divider{text-align:center;}
+.divider .num{font-size:clamp(80px,18vw,220px);font-weight:900;line-height:.85;color:transparent;-webkit-text-stroke:2px rgba(120,170,255,.45);letter-spacing:-0.04em;}
+.divider .label{font-size:clamp(18px,3vw,34px);font-weight:900;color:#fff;margin-top:8px;letter-spacing:.04em;}
+.divider .en{font-size:clamp(12px,1.6vw,15px);letter-spacing:.3em;color:var(--cyan);text-transform:uppercase;margin-top:14px;}
+
+/* ============ VISUAL SHOWCASE (slides 5,6,8,9) ============ */
+.showcase{display:grid;gap:clamp(20px,3vw,40px);align-items:center;}
+.showcase.split{grid-template-columns:0.92fr 1.08fr;}
+.show-head h2{font-size:clamp(26px,4vw,46px);color:#fff;}
+.bg-paper .show-head h2{color:var(--ink);}
+.show-head .lead{margin-top:18px;font-size:clamp(14px,1.9vw,18px);color:#c8d6f5;line-height:1.7;}
+.bg-paper .show-head .lead{color:var(--gray);}
+.figure{
+  position:relative;border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 70px -25px rgba(0,0,0,.6);
+  border:1px solid rgba(255,255,255,.08);
+  background:#0a1430;
+}
+.figure img{width:100%;height:auto;display:block;}
+.figure figcaption{
+  position:absolute;left:0;bottom:0;width:100%;
+  padding:18px 20px 14px;font-size:13px;font-weight:500;color:#dce6ff;
+  background:linear-gradient(transparent,rgba(4,10,28,.92));
+}
+.tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.tag{font-size:clamp(12px,1.5vw,14px);font-weight:700;padding:9px 16px;border-radius:100px;background:rgba(47,107,255,.16);color:#bcd4ff;border:1px solid rgba(95,168,255,.3);}
+.bg-paper .tag{background:#eaf0fc;color:var(--blue);border-color:#cfdcf7;}
+
+/* spec chips */
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px;}
+.spec{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:16px 18px;}
+.bg-paper .spec{background:#fff;border-color:var(--line);box-shadow:0 8px 22px -16px rgba(20,40,90,.4);}
+.spec .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700;}
+.bg-paper .spec .k{color:var(--blue);}
+.spec .v{font-size:clamp(17px,2.4vw,22px);font-weight:900;margin-top:6px;color:#fff;}
+.bg-paper .spec .v{color:var(--ink);}
+
+/* ============ VIDEO SLIDE ============ */
+.video-stage{position:relative;width:100%;max-width:1080px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.75);border:1px solid rgba(120,170,255,.18);}
+.video-stage video{width:100%;display:block;background:#000;}
+.video-cap{margin-top:22px;text-align:center;font-size:clamp(13px,1.8vw,16px);color:#bcd0f5;}
+.video-dual{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.video-dual .video-stage{max-width:none;}
+
+/* ============ WHY ICHEON (list) ============ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;}
+.why-list{display:flex;flex-direction:column;gap:4px;}
+.why-item{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start;}
+.why-item:last-child{border-bottom:none;}
+.why-item .t{font-size:clamp(16px,2.2vw,20px);font-weight:900;color:var(--blue);white-space:nowrap;}
+.why-item .d{font-size:clamp(13px,1.7vw,15px);color:var(--gray);line-height:1.6;}
+.why-fig{border-radius:16px;overflow:hidden;box-shadow:0 26px 60px -28px rgba(20,40,90,.5);border:1px solid var(--line);}
+.why-fig img{width:100%;display:block;}
+
+/* ============ BUDGET ============ */
+.budget-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(30px,4vw,60px);align-items:center;}
+.budget-cards{display:flex;flex-direction:column;gap:16px;}
+.bcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 14px 34px -24px rgba(20,40,90,.4);}
+.bcard .bh{display:flex;justify-content:space-between;align-items:baseline;gap:14px;}
+.bcard .bt{font-size:clamp(15px,2vw,18px);font-weight:900;color:var(--ink);}
+.bcard .bv{font-size:clamp(16px,2.4vw,22px);font-weight:900;color:var(--blue);white-space:nowrap;}
+.bcard .bd{margin-top:10px;font-size:13px;color:var(--gray);line-height:1.6;}
+.donut-wrap{display:flex;flex-direction:column;align-items:center;gap:22px;}
+.donut{position:relative;width:min(64vw,300px);height:min(64vw,300px);}
+.donut svg{width:100%;height:100%;transform:rotate(-90deg);}
+.donut .ring{fill:none;stroke-width:30;stroke-linecap:butt;}
+.donut .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.donut .center .lab{font-size:13px;color:var(--gray);font-weight:700;}
+.donut .center .amt{font-size:clamp(30px,7vw,48px);font-weight:900;color:var(--ink);letter-spacing:-0.03em;}
+.legend{display:flex;flex-direction:column;gap:12px;width:100%;max-width:340px;}
+.legend .li{display:flex;align-items:center;gap:12px;font-size:14px;}
+.legend .dot{width:14px;height:14px;border-radius:4px;flex-shrink:0;}
+.legend .ln{font-weight:700;color:var(--ink);}
+.legend .lp{margin-left:auto;font-weight:900;color:var(--gray);}
+.legend .ls{font-size:12px;color:var(--gray);font-weight:400;}
+
+/* ============ HIDDEN / DK PROPOSAL ============ */
+.dk-wrap{max-width:820px;margin:0 auto;text-align:center;}
+.dk-stmt{font-size:clamp(17px,2.6vw,26px);font-weight:500;line-height:1.7;color:#dce6ff;}
+.dk-stmt b{color:#fff;font-weight:900;}
+.dk-stmt .hl{color:var(--cyan);font-weight:900;}
+.dk-nums{display:flex;justify-content:center;gap:clamp(24px,5vw,64px);margin-top:48px;flex-wrap:wrap;}
+.dk-num{display:flex;flex-direction:column;align-items:center;}
+.dk-num .big{font-size:clamp(46px,11vw,92px);font-weight:900;letter-spacing:-0.04em;line-height:1;background:linear-gradient(120deg,#7fb6ff,#5fd0ff);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.dk-num .cap{margin-top:14px;font-size:clamp(13px,1.8vw,16px);font-weight:700;color:#c8d6f5;letter-spacing:.04em;}
+.dk-num .sub{font-size:11px;color:#7fa0d8;margin-top:3px;}
+
+/* ============ CLOSE ============ */
+.close-wrap{text-align:center;}
+.close-wrap .all{font-size:clamp(26px,5vw,58px);font-weight:900;color:#fff;letter-spacing:-0.03em;}
+.close-wrap .all .em{color:var(--cyan);}
+.close-wrap .ko{margin-top:18px;font-size:clamp(15px,2.2vw,22px);color:#c8d6f5;}
+.close-wrap .gw{margin-top:30px;font-size:clamp(13px,1.7vw,16px);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+/* ---------- PROGRESS + NAV ---------- */
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:100;width:0;transition:width .2s;}
+.dots{position:fixed;right:clamp(14px,2vw,28px);top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:11px;}
+.dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(140,170,230,.35);cursor:pointer;padding:0;transition:.25s;}
+.dots button.active{background:var(--cyan);transform:scale(1.45);}
+.brandfix{position:fixed;left:clamp(16px,2.5vw,30px);top:clamp(14px,2.5vw,24px);z-index:90;font-weight:900;font-size:13px;letter-spacing:.14em;color:#fff;mix-blend-mode:difference;}
+@media (max-width:859px){.dots{display:none;}.brandfix{display:none;}.scroll-hint{display:none;}}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:859px){
+  .showcase.split{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .budget-grid{grid-template-columns:1fr;}
+  .video-dual{grid-template-columns:1fr;}
+  .spec-grid{grid-template-columns:repeat(2,1fr);}
+  .why-fig{order:-1;}
+  .slide{min-height:auto;padding-top:64px;padding-bottom:64px;}
+  .deck{height:auto;overflow:visible;}
+  #cover{min-height:100svh;}
+}
+@media (max-width:430px){
+  .dk-nums{gap:30px;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="brandfix">DHU · K-MEDI</div>
+<nav class="dots" id="dots"></nav>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · COVER -->
+  <section class="slide bg-deep grain" id="cover" data-name="Cover">
+    <div class="cover-sphere" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none" stroke="rgba(120,180,255,.35)" stroke-width="1">
+        <circle cx="200" cy="200" r="160"/>
+        <ellipse cx="200" cy="200" rx="160" ry="55"/>
+        <ellipse cx="200" cy="200" rx="160" ry="100"/>
+        <ellipse cx="200" cy="200" rx="160" ry="140"/>
+        <ellipse cx="200" cy="200" rx="55" ry="160"/>
+        <ellipse cx="200" cy="200" rx="100" ry="160"/>
+        <ellipse cx="200" cy="200" rx="140" ry="160"/>
+      </svg>
+    </div>
+    <div class="orb a"></div><div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="cover-mark reveal d1">POWERED BY DHU · DAEGU HAANY UNIVERSITY</div>
+      <h1 class="cover-title reveal d2">THE SPHERE OF<span class="em">K-MEDI</span></h1>
+      <p class="cover-sub reveal d3">대한민국 한의학을 세계와 연결하는 <b>글로벌 랜드마크</b><br>그 중심에서 대구한의대의 위상을 알리는 <b>세계화 특별전</b></p>
+      <div class="cover-badge reveal d4"><span class="dhu">DHU</span> 대구한의대학교 · GLOCAL UNIVERSITY 30</div>
+      <div class="reveal d5" style="margin-top:28px;font-size:clamp(13px,1.6vw,15px);font-weight:700;letter-spacing:.18em;color:rgba(200,214,245,.7);text-transform:uppercase;">OREUM &amp; DK Global</div>
+    </div>
+    <div class="scroll-hint"><div class="mouse"></div>SCROLL</div>
+  </section>
+
+  <!-- 3 · PRESIDENT QUOTE -->
+  <section class="slide bg-dark grain" data-name="비전">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="quote-wrap">
+        <div class="quote-mark reveal d1">“</div>
+        <p class="quote-text reveal d2">지키는 대학이 아닌 <span class="hl">앞서가는 대학</span><br>지역 K-MEDI 기업이 세계로 진출하고<br>세계의 우수 인재가 지역에 정착하는<br><span class="hl">선순환 구조를 완성</span></p>
+        <div class="quote-source reveal d4">2026년 2월 · 총장 취임사 中</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · DIVIDER 1안 -->
+  <section class="slide bg-deep grain" data-name="제1안">
+    <div class="orb b"></div>
+    <div class="slide-inner divider">
+      <div class="num reveal d1">01</div>
+      <div class="label reveal d2">미디어아트 스피어 · 홍보 부스</div>
+      <div class="en reveal d3">Concept Plan A — Media-Art Sphere Booth</div>
+    </div>
+  </section>
+
+  <!-- 4 · SHOWCASE PAGE 5 (clean global) -->
+  <section class="slide bg-deep grain" data-name="제1안 비주얼">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="showcase split">
+        <div class="show-head">
+          <div class="kicker reveal d1">PLAN A · GLOBAL CONNECTION</div>
+          <h2 class="reveal d2">인천공항 면세구역<br>K-MEDI 실크로드 출발점</h2>
+          <p class="lead reveal d3">3.5m 360° LED 미디어아트 스피어를 중심으로 한의학의 지혜·과학·세계화를 한 공간에서 경험하는 글로벌 홍보 부스. 글로컬대학30 선정을 기념하는 대구한의대 브랜드 랜드마크입니다.</p>
+          <div class="tag-row reveal d4">
+            <span class="tag">전통의 지혜</span>
+            <span class="tag">세계와의 연결</span>
+            <span class="tag">미래의 혁신</span>
+          </div>
+        </div>
+        <figure class="figure reveal d3">
+          <img src="assets/slide_global.jpg" alt="인천공항 면세구역 내 K-MEDI 스피어 홍보 부스 시안" loading="lazy">
+          <figcaption>인천공항 듀티프리 에어리어 · The Sphere of K-Medi 홍보 부스</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · SHOWCASE PAGE 6 (detail infographic) -->
+  <section class="slide bg-deep grain" data-name="제1안 사양">
+    <div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="showcase">
+        <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 8px;">
+          <div class="kicker reveal d1" style="justify-content:center;">DISPLAY SPEC & CONCEPT</div>
+          <h2 class="reveal d2">360° 미디어아트 스피어 상세</h2>
+        </div>
+        <figure class="figure reveal d3">
+          <img src="assets/slide_global_detail.jpg" alt="K-MEDI 스피어 컨셉, 주요 기능, 디스플레이 사양 상세 인포그래픽" loading="lazy">
+        </figure>
+        <div class="spec-grid reveal d4">
+          <div class="spec"><div class="k">Diameter</div><div class="v">3.5 m</div></div>
+          <div class="spec"><div class="k">LED Type</div><div class="v">SMD 1515 · P2.5</div></div>
+          <div class="spec"><div class="k">Viewing Angle</div><div class="v">360°</div></div>
+          <div class="spec"><div class="k">Operation</div><div class="v">24 / 7</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · VIDEO 1 (sphere motion) -->
+  <section class="slide bg-deep grain" data-name="영상 · 스피어">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 28px;">
+        <div class="kicker reveal d1" style="justify-content:center;">MOTION PREVIEW</div>
+        <h2 class="reveal d2" style="color:#fff;">스피어 디스플레이 연출 미리보기</h2>
+      </div>
+      <div class="video-stage reveal d3">
+        <video src="assets/video1.mp4" poster="assets/poster1.jpg" muted loop playsinline preload="metadata" data-autovid></video>
+      </div>
+      <p class="video-cap reveal d4">Glocal University 30 · K-Medi Silk Road — 인체·DNA 미디어아트 연출</p>
+    </div>
+  </section>
+
+  <!-- 7 · DIVIDER 2안 -->
+  <section class="slide bg-deep grain" data-name="제2안">
+    <div class="orb b"></div>
+    <div class="slide-inner divider">
+      <div class="num reveal d1">02</div>
+      <div class="label reveal d2">독립형 스피어 사이니지</div>
+      <div class="en reveal d3">Concept Plan B — Standalone Sphere Signage</div>
+    </div>
+  </section>
+
+  <!-- 8 · SHOWCASE PAGE 8 (signage clean) -->
+  <section class="slide bg-deep grain" data-name="제2안 비주얼">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="showcase split">
+        <figure class="figure reveal d2">
+          <img src="assets/slide_signage.jpg" alt="신세계 면세구역 내 독립형 스피어 사이니지 시안 및 QR 인터랙션" loading="lazy">
+          <figcaption>독립형 스피어 사이니지 + QR 연동 인터랙션 키오스크</figcaption>
+        </figure>
+        <div class="show-head">
+          <div class="kicker reveal d1">PLAN B · INTERACTIVE SIGNAGE</div>
+          <h2 class="reveal d2">스캔하고 경험하는<br>독립형 스피어 사이니지</h2>
+          <p class="lead reveal d3">받침대형 독립 스피어와 QR 연동 키오스크로 구성된 인터랙션 모델. 입출국 외국인이 직접 스캔하여 대학 소개·입학·국제교류 정보를 즉시 확인할 수 있습니다.</p>
+          <div class="tag-row reveal d4">
+            <span class="tag">QR Scan &amp; Experience</span>
+            <span class="tag">다국어 콘텐츠</span>
+            <span class="tag">SNS 바이럴</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 · SHOWCASE PAGE 9 (signage detail) -->
+  <section class="slide bg-deep grain" data-name="제2안 사양">
+    <div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="showcase">
+        <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 8px;">
+          <div class="kicker reveal d1" style="justify-content:center;">QR INTERACTION FLOW</div>
+          <h2 class="reveal d2">사이니지 베리에이션 &amp; 인터랙션 흐름</h2>
+        </div>
+        <figure class="figure reveal d3">
+          <img src="assets/slide_signage_detail.jpg" alt="에어스타 애비뉴 사이니지 베리에이션 및 QR 스캔 인터랙션 플로우" loading="lazy">
+        </figure>
+        <div class="spec-grid reveal d4" style="grid-template-columns:repeat(3,1fr);">
+          <div class="spec"><div class="k">Step 1</div><div class="v">QR 스캔</div></div>
+          <div class="spec"><div class="k">Step 2</div><div class="v">콘텐츠 선택</div></div>
+          <div class="spec"><div class="k">Step 3</div><div class="v">정보 확인</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · VIDEO 2 (vision message) -->
+  <section class="slide bg-deep grain" data-name="영상 · 비전">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 28px;">
+        <div class="kicker reveal d1" style="justify-content:center;">VISION MESSAGE</div>
+        <h2 class="reveal d2" style="color:#fff;">한의학 × AI × 바이오, 세계로</h2>
+      </div>
+      <div class="video-stage reveal d3">
+        <video src="assets/video2.mp4" poster="assets/poster2.jpg" muted loop playsinline preload="metadata" data-autovid></video>
+      </div>
+      <p class="video-cap reveal d4">대한민국 한의학의 지혜, 세계의 건강을 연결하다 — 미래의료 융합대학</p>
+    </div>
+  </section>
+
+  <!-- 11 · WHY ICHEON -->
+  <section class="slide bg-paper" data-name="왜 인천공항">
+    <div class="slide-inner">
+      <div class="kicker reveal d1">WHY INCHEON AIRPORT</div>
+      <h2 class="reveal d2" style="font-size:clamp(26px,4.5vw,48px);margin-bottom:8px;">글로벌 위상을 높이는<br>최적의 공간</h2>
+      <div class="why-grid" style="margin-top:26px;">
+        <div class="why-list">
+          <div class="why-item reveal d2"><div class="t">연간 이용객 7,400만명</div><div class="d">하루 평균 20만명 이상 이용 · 글로벌 홍보의 최적 공간</div></div>
+          <div class="why-item reveal d3"><div class="t">K-MEDI 실크로드 출발점</div><div class="d">국내 한의대 최초 진행 사례 · 한의학을 세계로 알리는 비전 실천</div></div>
+          <div class="why-item reveal d4"><div class="t">외국인 유학생 접점</div><div class="d">입출국 외국인·글로벌 파트너에게 대학 위상 제고 / 유학생 유치 직결</div></div>
+          <div class="why-item reveal d5"><div class="t">SNS 바이럴 랜드마크</div><div class="d">SNS·입소문·언론 보도를 통한 글로벌 브랜딩</div></div>
+          <div class="why-item reveal d6"><div class="t">노마드 캠퍼스 실현</div><div class="d">대구·경산 캠퍼스를 넘어선 세계화 거점</div></div>
+        </div>
+        <figure class="why-fig reveal d3">
+          <img src="assets/slide_global.jpg" alt="인천공항 K-MEDI 스피어 홍보 부스" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · BUDGET -->
+  <section class="slide bg-paper" data-name="사업 예산">
+    <div class="slide-inner">
+      <div class="kicker reveal d1">ANNUAL OPERATING BUDGET</div>
+      <h2 class="reveal d2" style="font-size:clamp(24px,4vw,42px);margin-bottom:6px;">연간 임대 운영 예산 <span style="color:var(--blue);">(인천공항 T1·T2)</span></h2>
+      <p class="reveal d2" style="color:var(--gray);font-size:14px;margin-bottom:30px;">대구한의대 자체 예산을 중점에 두고 동문회·민간기업 후원 유치</p>
+      <div class="budget-grid">
+        <div class="budget-cards">
+          <div class="bcard reveal d2"><div class="bh"><div class="bt">홍보관 구축 비용 (2 Sets)</div><div class="bv">15억</div></div><div class="bd">SPHERE 렌탈 설치 (T1·T2) · 30평 부스 인테리어 · 전시 집기 · 전기통신·소방 인허가</div></div>
+          <div class="bcard reveal d3"><div class="bh"><div class="bt">콘텐츠 제작 비용</div><div class="bv">5억</div></div><div class="bd">특수영상·애니메이션 다국어 제작 및 업데이트</div></div>
+          <div class="bcard reveal d4"><div class="bh"><div class="bt">T1·T2 연간 운영비</div><div class="bv">10억</div></div><div class="bd">임대료·관리비·청소비 · 인력 운영비 · 장비 유지보수</div></div>
+        </div>
+        <div class="donut-wrap reveal d3">
+          <div class="donut">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring" cx="60" cy="60" r="45" stroke="#e7ecf6"></circle>
+              <circle class="ring rseg" cx="60" cy="60" r="45" stroke="#2f6bff" data-pct="50" data-off="0"></circle>
+              <circle class="ring rseg" cx="60" cy="60" r="45" stroke="#3a3f52" data-pct="30" data-off="50"></circle>
+              <circle class="ring rseg" cx="60" cy="60" r="45" stroke="#9aa6bf" data-pct="20" data-off="80"></circle>
+            </svg>
+            <div class="center"><div class="lab">총 사업비</div><div class="amt">30억</div></div>
+          </div>
+          <div class="legend">
+            <div class="li"><span class="dot" style="background:#2f6bff"></span><span class="ln">대구한의대</span><span class="lp">50%</span></div>
+            <div class="li"><span class="dot" style="background:#3a3f52"></span><span class="ln">동문 후원</span><span class="ls">&nbsp;동문회·동문기업</span><span class="lp">30%</span></div>
+            <div class="li"><span class="dot" style="background:#9aa6bf"></span><span class="ln">민간 기업</span><span class="ls">&nbsp;의료기기·AI헬스케어</span><span class="lp">20%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="slide bg-deep grain" data-name="마무리">
+    <div class="cover-sphere" aria-hidden="true" style="opacity:.32;">
+      <svg viewBox="0 0 400 400" fill="none" stroke="rgba(120,180,255,.3)" stroke-width="1">
+        <circle cx="200" cy="200" r="160"/><ellipse cx="200" cy="200" rx="160" ry="70"/><ellipse cx="200" cy="200" rx="160" ry="120"/><ellipse cx="200" cy="200" rx="70" ry="160"/><ellipse cx="200" cy="200" rx="120" ry="160"/>
+      </svg>
+    </div>
+    <div class="orb a"></div>
+    <div class="slide-inner close-wrap">
+      <div class="kicker reveal d1" style="justify-content:center;">THE SPHERE OF K-MEDI</div>
+      <div class="all reveal d2">ALL WAYS FOR <span class="em">K-MEDI</span>, DHU</div>
+      <div class="ko reveal d3">모든 길은 K-Medi로, 그 중심에 DHU가 있습니다.</div>
+      <div class="gw reveal d4">GATEWAY TO GLOBAL WELLNESS</div>
+      <div class="reveal d5" style="margin-top:48px;font-size:12px;letter-spacing:.12em;color:rgba(140,165,210,.5);font-weight:400;">Copyright &copy; 2026 OREUM Inc. All Rights Reserved.</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* ---------- reveal on view ---------- */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- autoplay videos in view ---------- */
+const vio = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){ v.play().catch(()=>{}); } else { v.pause(); }
+  });
+},{threshold:0.45});
+document.querySelectorAll('video[data-autovid]').forEach(v=>vio.observe(v));
+
+/* ---------- donut animation ---------- */
+const C=2*Math.PI*45;
+document.querySelectorAll('.donut .rseg').forEach(seg=>{
+  const pct=+seg.dataset.pct, off=+seg.dataset.off;
+  seg.style.strokeDasharray=`0 ${C}`;
+  seg.style.strokeDashoffset=`${-(off/100)*C}`;
+  seg.style.transition='stroke-dasharray 1.1s cubic-bezier(.16,.84,.44,1)';
+});
+const dio=new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.rseg').forEach((seg,i)=>{
+        const pct=+seg.dataset.pct;
+        setTimeout(()=>{ seg.style.strokeDasharray=`${(pct/100)*C} ${C}`; }, 150+i*220);
+      });
+      dio.unobserve(e.target);
+    }
+  });
+},{threshold:0.4});
+const dn=document.querySelector('.donut');
+if(dn) dio.observe(dn);
+
+/* ---------- progress + dots ---------- */
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const dots=document.getElementById('dots');
+const prog=document.getElementById('progress');
+slides.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.title=s.dataset.name||('Slide '+(i+1));
+  b.addEventListener('click',()=>s.scrollIntoView({behavior:'smooth'}));
+  dots.appendChild(b);
+});
+const dbtns=[...dots.children];
+function onScroll(){
+  const sc=window.scrollY||document.documentElement.scrollTop;
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(h>0?(sc/h*100):0)+'%';
+  let idx=0,best=1e9;
+  slides.forEach((s,i)=>{
+    const d=Math.abs(s.getBoundingClientRect().top);
+    if(d<best){best=d;idx=i;}
+  });
+  dbtns.forEach((b,i)=>b.classList.toggle('active',i===idx));
+}
+const scroller = window.matchMedia('(min-width:860px)').matches ? deck : window;
+(scroller===deck?deck:window).addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+onScroll();
+
+/* ---------- keyboard nav ---------- */
+let cur=0;
+function go(n){ n=Math.max(0,Math.min(slides.length-1,n)); cur=n; slides[n].scrollIntoView({behavior:'smooth'}); }
+window.addEventListener('keydown',(e)=>{
+  if(e.key==='ArrowDown'||e.key==='PageDown'){e.preventDefault();go(cur+1);}
+  if(e.key==='ArrowUp'||e.key==='PageUp'){e.preventDefault();go(cur-1);}
+  if(e.key==='Home'){e.preventDefault();go(0);}
+  if(e.key==='End'){e.preventDefault();go(slides.length-1);}
+});
+// keep cur in sync with scroll position
+(scroller===deck?deck:window).addEventListener('scroll',()=>{
+  let idx=0,best=1e9;
+  slides.forEach((s,i)=>{const d=Math.abs(s.getBoundingClientRect().top);if(d<best){best=d;idx=i;}});
+  cur=idx;
+},{passive:true});
+</script>
+</body>
+</html>
