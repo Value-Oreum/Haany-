@@ -3,7 +3,29 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(where pdftoppm *)",
+      "Bash(where magick *)",
+      "Bash(where gs *)",
+      "Bash(where choco *)",
+      "Bash(where scoop *)",
+      "Bash(where winget *)",
+      "Bash(where python *)",
+      "Bash(python -c \"import pypdf\")",
+      "Bash(python -c \"import fitz\")",
+      "Bash(python -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(python -c \"import fitz; print\\('fitz ok'\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python -c ' *)",
+      "Read(//d//**)",
+      "Bash(python \"C:\\\\Users\\\\채동수\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--0-------00Value-OREUM-with-DK-------\\\\1fbfbe0f-8a9c-42be-b0a9-877654b74d7e\\\\scratchpad\\\\extract_pdf.py\")",
+      "PowerShell(python \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--0-------00Value-OREUM-with-DK-------\\\\1fbfbe0f-8a9c-42be-b0a9-877654b74d7e\\\\scratchpad\\\\extract_pdf.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe\" \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--0-------00Value-OREUM-with-DK-------\\\\1fbfbe0f-8a9c-42be-b0a9-877654b74d7e\\\\scratchpad\\\\extract_pdf.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe\" \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--0-------00Value-OREUM-with-DK-------\\\\1fbfbe0f-8a9c-42be-b0a9-877654b74d7e\\\\scratchpad\\\\render_pdf.py\")",
+      "PowerShell(& \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe\" \"C:\\\\Users\\\\ä����\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--0-------00Value-OREUM-with-DK-------\\\\1fbfbe0f-8a9c-42be-b0a9-877654b74d7e\\\\scratchpad\\\\extract_plan3_images.py\")"
     ]
   }
 }

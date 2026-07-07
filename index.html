@@ -193,6 +193,44 @@ p{line-height:1.75;}
 .video-dual{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
 .video-dual .video-stage{max-width:none;}
 
+/* ============ INTRO STATS ============ */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.stat-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px 18px;text-align:center;}
+.stat-card .n{font-size:clamp(18px,2.6vw,24px);font-weight:900;color:var(--cyan);}
+.stat-card .d{margin-top:10px;font-size:13px;color:#c8d6f5;line-height:1.5;}
+@media (max-width:859px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* ============ DUAL FIGURE (Plan C) ============ */
+.dual-fig{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+@media (max-width:859px){.dual-fig{grid-template-columns:1fr;}}
+
+/* ============ CONTENT SEQUENCE ============ */
+.seq-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px;}
+.seq-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 16px;}
+.seq-card .no{font-size:11px;letter-spacing:.16em;color:var(--cyan);font-weight:700;text-transform:uppercase;}
+.seq-card .t{margin-top:8px;font-size:15px;font-weight:900;color:#fff;}
+.seq-card .d{margin-top:8px;font-size:12.5px;color:#bcd0f5;line-height:1.55;}
+@media (max-width:859px){.seq-grid{grid-template-columns:1fr 1fr;}}
+
+/* ============ CUSTOMER JOURNEY ============ */
+.journey-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;justify-content:center;}
+.journey-step{flex:1 1 150px;max-width:190px;background:rgba(10,20,50,.5);border:1px solid rgba(120,170,255,.25);border-radius:14px;padding:20px 16px;text-align:center;}
+.journey-step.hl{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan) inset;}
+.journey-step .num{font-size:12px;color:var(--cyan);font-weight:900;}
+.journey-step .en{margin-top:6px;font-size:11px;letter-spacing:.14em;color:#9db6e8;text-transform:uppercase;}
+.journey-step .ko{margin-top:4px;font-size:17px;font-weight:900;color:#fff;}
+.journey-step .d{margin-top:10px;font-size:12px;color:#bcd0f5;line-height:1.5;}
+
+/* ============ 6 EFFECTS ============ */
+.effect-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+.effect-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px 20px;}
+.effect-card .t{font-size:16px;font-weight:900;color:#fff;}
+.effect-card .d{margin-top:10px;font-size:12.5px;color:#bcd0f5;line-height:1.6;}
+.bg-paper .effect-card{background:#fff;border-color:var(--line);box-shadow:0 8px 22px -16px rgba(20,40,90,.4);}
+.bg-paper .effect-card .t{color:var(--ink);}
+.bg-paper .effect-card .d{color:var(--gray);}
+@media (max-width:859px){.effect-grid{grid-template-columns:1fr 1fr;}}
+
 /* ============ WHY ICHEON (list) ============ */
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:center;}
 .why-list{display:flex;flex-direction:column;gap:4px;}
@@ -295,9 +333,25 @@ p{line-height:1.75;}
       <h1 class="cover-title reveal d2">THE SPHERE OF<span class="em">K-MEDI</span></h1>
       <p class="cover-sub reveal d3">대한민국 한의학을 세계와 연결하는 <b>글로벌 랜드마크</b><br>그 중심에서 대구한의대의 위상을 알리는 <b>세계화 특별전</b></p>
       <div class="cover-badge reveal d4"><span class="dhu">DHU</span> 대구한의대학교 · GLOCAL UNIVERSITY 30</div>
-      <div class="reveal d5" style="margin-top:28px;font-size:clamp(13px,1.6vw,15px);font-weight:700;letter-spacing:.18em;color:rgba(200,214,245,.7);text-transform:uppercase;">OREUM &amp; DK Global</div>
+      <div class="reveal d5" style="margin-top:28px;font-size:clamp(13px,1.6vw,15px);font-weight:700;letter-spacing:.18em;color:rgba(200,214,245,.7);text-transform:uppercase;">DK Global Korea</div>
     </div>
     <div class="scroll-hint"><div class="mouse"></div>SCROLL</div>
+  </section>
+
+  <!-- 2 · INTRO STATS -->
+  <section class="slide bg-deep grain" data-name="세계로 향하다">
+    <div class="orb a"></div><div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="kicker reveal d1">GATEWAY TO THE WORLD</div>
+      <h2 class="reveal d2" style="color:#fff;font-size:clamp(26px,4.5vw,48px);">대한민국의 관문에서,<br>K-MEDI <span style="color:var(--cyan);">세계로 향하다</span></h2>
+      <p class="reveal d3" style="margin-top:18px;color:#c8d6f5;font-size:15px;">연 7,400만 명의 '첫인상'이 머무는 단 하나의 무대 — 인천국제공항</p>
+      <div class="stat-grid">
+        <div class="stat-card reveal d3"><div class="n">7,400만 명</div><div class="d">세계인의 관문에서<br>전례 없는 압도적 노출 효과</div></div>
+        <div class="stat-card reveal d4"><div class="n">실크로드 출발점</div><div class="d">세계로 진출하는 한의학의<br>상징적 기점</div></div>
+        <div class="stat-card reveal d5"><div class="n">국내 한의대 최초</div><div class="d">가장 강력한 마케팅 워드 '최초'<br>→ 원조·중심 포지션 선점</div></div>
+        <div class="stat-card reveal d6"><div class="n">글로컬30·국제화</div><div class="d">글로컬대학30·국제화사업의<br>대표적 가시 성과로 활용</div></div>
+      </div>
+    </div>
   </section>
 
   <!-- 3 · PRESIDENT QUOTE -->
@@ -451,6 +505,75 @@ p{line-height:1.75;}
     </div>
   </section>
 
+  <!-- 11 · DIVIDER 3안 -->
+  <section class="slide bg-deep grain" data-name="제3안">
+    <div class="orb a"></div>
+    <div class="slide-inner divider">
+      <div class="num reveal d1">03</div>
+      <div class="label reveal d2">비정형 스크린 추가 제안</div>
+      <div class="en reveal d3">Concept Plan C — Non-standard Screen Signage</div>
+    </div>
+  </section>
+
+  <!-- 12 · SHOWCASE PLAN C -->
+  <section class="slide bg-deep grain" data-name="제3안 비주얼">
+    <div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 28px;">
+        <div class="kicker reveal d1" style="justify-content:center;">PLAN C · NON-STANDARD SCREEN</div>
+        <h2 class="reveal d2" style="color:#fff;">SPHERE 타입을 벗어난<br>비정형 스크린 추가 제안</h2>
+      </div>
+      <div class="dual-fig">
+        <figure class="figure reveal d3">
+          <img src="assets/slide_plan3.jpg" alt="인천공항 헥사곤형 홀로그램 스크린 조형물 시안" loading="lazy">
+          <figcaption>홀로그래픽 헥사곤 스크린 조형물</figcaption>
+        </figure>
+        <figure class="figure reveal d4">
+          <img src="assets/slide_plan3_signage.jpg" alt="K-MEDI 무한대 조형물 사이니지 시안" loading="lazy">
+          <figcaption>K-MEDI 인피니티 사이니지</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 · CONTENT SEQUENCE -->
+  <section class="slide bg-deep grain" data-name="콘텐츠 구성">
+    <div class="orb a"></div>
+    <div class="slide-inner">
+      <div class="show-head" style="text-align:center;max-width:760px;margin:0 auto 8px;">
+        <div class="kicker reveal d1" style="justify-content:center;">CONTENT SEQUENCE</div>
+        <h2 class="reveal d2" style="color:#fff;">콘텐츠 구성 예</h2>
+      </div>
+      <div class="seq-grid">
+        <div class="seq-card reveal d2"><div class="no">Sequence 1</div><div class="t">한의학 5천년 서사</div><div class="d">동의보감·사상의학 등 한의학의 역사와 철학을 시네마틱 영상으로 구현</div></div>
+        <div class="seq-card reveal d3"><div class="no">Sequence 2</div><div class="t">치료·체험 비주얼</div><div class="d">침·뜸·약재 등 대표 치료를 몰입형 비주얼로 — 외국인 호기심 직격</div></div>
+        <div class="seq-card reveal d4"><div class="no">Sequence 3</div><div class="t">캠퍼스·학과 투어</div><div class="d">대구한의대 캠퍼스·교육·연구역량을 360° 투어로 소개, 유학 동기부여</div></div>
+        <div class="seq-card reveal d5"><div class="no">Sequence 4</div><div class="t">동문기업 쇼케이스</div><div class="d">의료기기·AI헬스케어 제품을 세계 관문에서 전시 / 산학·수출 연계</div></div>
+        <div class="seq-card reveal d6"><div class="no">Sequence 5</div><div class="t">인터랙션·전환 장치</div><div class="d">다국어 자막, QR 입학상담·SNS 연동으로 노출을 실제 행동으로 전환</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 · CUSTOMER JOURNEY -->
+  <section class="slide bg-deep grain" data-name="고객여정">
+    <div class="orb b"></div>
+    <div class="slide-inner">
+      <div class="show-head" style="max-width:820px;margin:0 auto 8px;text-align:center;">
+        <div class="kicker reveal d1" style="justify-content:center;">CUSTOMER JOURNEY</div>
+        <h2 class="reveal d2" style="color:#fff;">광고 노출 효과를 넘어<br>글로벌 팬덤이 되도록 설계!</h2>
+      </div>
+      <div class="journey-row">
+        <div class="journey-step reveal d2"><div class="num">1</div><div class="en">Awareness</div><div class="ko">노출</div><div class="d">대구한의대 랜드마크 SPHERE와 첫 대면 · 공항 T1·T2</div></div>
+        <div class="journey-step reveal d3"><div class="num">2</div><div class="en">Attraction</div><div class="ko">시선 집중</div><div class="d">3.5m 구형 미디어의 압도적 비주얼에 발길이 멈춤 · WOW Effect</div></div>
+        <div class="journey-step reveal d4"><div class="num">3</div><div class="en">Experience</div><div class="ko">체험·몰입</div><div class="d">다국어 콘텐츠·포토존·QR 인터랙션 체험</div></div>
+        <div class="journey-step reveal d5 hl"><div class="num">4</div><div class="en">Share</div><div class="ko">공유·바이럴</div><div class="d">인증샷·해시태그·숏폼으로 SNS 자발적 확산</div></div>
+        <div class="journey-step reveal d6"><div class="num">5</div><div class="en">Conversion</div><div class="ko">행동·전환</div><div class="d">QR 입학상담·웹 방문·글로벌 파트너 문의</div></div>
+        <div class="journey-step reveal d6 hl"><div class="num">6</div><div class="en">Advocacy</div><div class="ko">관계·팬덤</div><div class="d">글로벌 브랜드 인지·재방문·유학 유치로 연결</div></div>
+      </div>
+      <p class="reveal d6" style="margin-top:26px;text-align:center;font-size:12.5px;color:#9db6e8;">SNS 공유·언론보도가 온라인 '2차 노출' 생산 → [노출] 단계로 환류 | 오프라인 1회 접점이 온라인에서 자가증식하며 도달이 기하급수적으로 확장됩니다.</p>
+    </div>
+  </section>
+
   <!-- 11 · WHY ICHEON -->
   <section class="slide bg-paper" data-name="왜 인천공항">
     <div class="slide-inner">
@@ -471,6 +594,23 @@ p{line-height:1.75;}
     </div>
   </section>
 
+  <!-- 6대 기대효과 -->
+  <section class="slide bg-paper" data-name="기대효과">
+    <div class="slide-inner">
+      <div class="kicker reveal d1">EXPECTED IMPACT</div>
+      <h2 class="reveal d2" style="font-size:clamp(26px,4.5vw,44px);">6대 기대효과</h2>
+      <p class="reveal d2" style="color:var(--gray);font-size:14px;margin-top:8px;margin-bottom:20px;">디지털 OOH(옥외광고) 매체 단가 기준 광고환산가치만으로도 약 22억 수준. 글로벌 브랜드 가치 제고 효과는 비용 환산 불가의 가치</p>
+      <div class="effect-grid">
+        <div class="effect-card reveal d2"><div class="t">글로벌 위상 제고</div><div class="d">연 7,400만 명 노출로 광고로는 살 수 없는 미디어 가치 창출. 세계 관문에서 대학 브랜드를 각인.</div></div>
+        <div class="effect-card reveal d3"><div class="t">유학생 유치 → 재정 직결</div><div class="d">입·출국 외국인·글로벌 파트너 첫 접점. 잠재 유학생을 학위·연수로 전환하는 상시 입학 채널.</div></div>
+        <div class="effect-card reveal d4"><div class="t">글로컬30·국제화 실적화</div><div class="d">'한의대 최초 인천공항 진출'을 국제화·지역기여 평가지표의 대표 성과로 반영.</div></div>
+        <div class="effect-card reveal d5"><div class="t">산학협력·기술 사업화</div><div class="d">동문기업(의료기기·AI헬스케어) 제품을 세계 관문에서 쇼케이스. K-Medi 수출·실증 거점화.</div></div>
+        <div class="effect-card reveal d6"><div class="t">동문 결집·후원 선순환</div><div class="d">'세계로 가는 모교' 자긍심이 동문·동문기업 후원(사업비 30%)을 견인, 지속 후원 문화로 전환.</div></div>
+        <div class="effect-card reveal d6"><div class="t">K-Medi 세계화 리더십</div><div class="d">한의학 세계화 담론의 출발점을 선점. 후발 기관 대비 '원조·중심' 브랜드 자산 확보.</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 12 · BUDGET -->
   <section class="slide bg-paper" data-name="사업 예산">
     <div class="slide-inner">
@@ -480,8 +620,9 @@ p{line-height:1.75;}
       <div class="budget-grid">
         <div class="budget-cards">
           <div class="bcard reveal d2"><div class="bh"><div class="bt">홍보관 구축 비용 (2 Sets)</div><div class="bv">15억</div></div><div class="bd">SPHERE 렌탈 설치 (T1·T2) · 30평 부스 인테리어 · 전시 집기 · 전기통신·소방 인허가</div></div>
-          <div class="bcard reveal d3"><div class="bh"><div class="bt">콘텐츠 제작 비용</div><div class="bv">5억</div></div><div class="bd">특수영상·애니메이션 다국어 제작 및 업데이트</div></div>
-          <div class="bcard reveal d4"><div class="bh"><div class="bt">T1·T2 연간 운영비</div><div class="bv">10억</div></div><div class="bd">임대료·관리비·청소비 · 인력 운영비 · 장비 유지보수</div></div>
+          <div class="bcard reveal d3"><div class="bh"><div class="bt">콘텐츠 제작 비용</div><div class="bv">10억</div></div><div class="bd">특수영상·애니메이션 다국어 제작 및 업데이트</div></div>
+          <div class="bcard reveal d4"><div class="bh"><div class="bt">T1·T2 연간 운영비</div><div class="bv">5억</div></div><div class="bd">관리비·청소비 · 인력 운영비 · 장비 유지보수</div></div>
+          <p class="reveal d4" style="font-size:12px;color:var(--gray);margin-top:2px;">※ 입점 / 공간 임대 비용은 별도입니다.</p>
         </div>
         <div class="donut-wrap reveal d3">
           <div class="donut">
@@ -513,10 +654,10 @@ p{line-height:1.75;}
     <div class="orb a"></div>
     <div class="slide-inner close-wrap">
       <div class="kicker reveal d1" style="justify-content:center;">THE SPHERE OF K-MEDI</div>
-      <div class="all reveal d2">ALL WAYS FOR <span class="em">K-MEDI</span>, DHU</div>
-      <div class="ko reveal d3">모든 길은 K-Medi로, 그 중심에 DHU가 있습니다.</div>
-      <div class="gw reveal d4">GATEWAY TO GLOBAL WELLNESS</div>
-      <div class="reveal d5" style="margin-top:48px;font-size:12px;letter-spacing:.12em;color:rgba(140,165,210,.5);font-weight:400;">Copyright &copy; 2026 OREUM Inc. All Rights Reserved.</div>
+      <div class="all reveal d2" style="font-size:clamp(22px,4vw,42px);">세계로 진출하는 시작점에서<br><span class="em">K-MEDI 중심</span> - 대구한의대를 만나겠습니다</div>
+      <div class="ko reveal d3" style="font-weight:900;font-size:clamp(18px,2.6vw,26px);">감사합니다</div>
+      <div class="gw reveal d4">PROPOSED BY DK GLOBAL KOREA</div>
+      <div class="reveal d5" style="margin-top:48px;font-size:12px;letter-spacing:.12em;color:rgba(140,165,210,.5);font-weight:400;">Copyright &copy; 2026 OREUM Inc. &amp; DK Global Korea. All Rights Reserved.</div>
     </div>
   </section>
 
