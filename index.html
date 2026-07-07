@@ -280,7 +280,9 @@ p{line-height:1.75;}
 .close-wrap .all .em{color:var(--cyan);}
 .close-wrap .ko{margin-top:18px;font-size:clamp(15px,2.2vw,22px);color:#c8d6f5;}
 .close-wrap .gw{margin-top:30px;font-size:clamp(13px,1.7vw,16px);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;}
-.close-copyright{position:absolute;bottom:18px;left:0;right:0;margin:0 auto;width:100%;text-align:center;font-size:10px;letter-spacing:.06em;color:rgba(140,165,210,.4);font-weight:400;z-index:5;padding:0 16px;}
+.close-slide{flex-direction:column;}
+.close-slide .slide-inner{margin:auto 0;}
+.close-copyright{flex-shrink:0;width:100%;text-align:center;font-size:10px;letter-spacing:.06em;color:rgba(140,165,210,.4);font-weight:400;padding-top:10px;}
 
 /* ---------- PROGRESS + NAV ---------- */
 .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));z-index:100;width:0;transition:width .2s;}
@@ -646,7 +648,7 @@ p{line-height:1.75;}
   </section>
 
   <!-- CLOSE -->
-  <section class="slide bg-deep grain" data-name="마무리">
+  <section class="slide close-slide bg-deep grain" data-name="마무리">
     <div class="cover-sphere" aria-hidden="true" style="opacity:.32;">
       <svg viewBox="0 0 400 400" fill="none" stroke="rgba(120,180,255,.3)" stroke-width="1">
         <circle cx="200" cy="200" r="160"/><ellipse cx="200" cy="200" rx="160" ry="70"/><ellipse cx="200" cy="200" rx="160" ry="120"/><ellipse cx="200" cy="200" rx="70" ry="160"/><ellipse cx="200" cy="200" rx="120" ry="160"/>
